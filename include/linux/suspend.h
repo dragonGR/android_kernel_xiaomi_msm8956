@@ -187,6 +187,13 @@ struct platform_suspend_ops {
 	void (*recover)(void);
 };
 
+struct platform_freeze_ops {
+	int (*begin)(void);
+	int (*prepare)(void);
+	void (*restore)(void);
+	void (*end)(void);
+};
+
 #ifdef CONFIG_SUSPEND
 /**
  * suspend_set_ops - set platform dependent suspend operations
