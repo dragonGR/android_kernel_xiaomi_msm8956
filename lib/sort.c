@@ -7,7 +7,6 @@
 #include <linux/kernel.h>
 #include <linux/module.h>
 #include <linux/sort.h>
-#include <linux/slab.h>
 
 static int alignment_ok(const void *base, int align)
 {
@@ -104,6 +103,7 @@ void sort(void *base, size_t num, size_t size,
 EXPORT_SYMBOL(sort);
 
 #if 0
+#include <linux/slab.h>
 /* a simple boot-time regression test */
 
 int cmpint(const void *a, const void *b)
