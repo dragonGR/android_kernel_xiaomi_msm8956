@@ -917,6 +917,7 @@
 
 		qcom,large-address-bus;
 		qcom,bus-width = <8>;
+		qcom,large-address-bus;
 
 		qcom,cpu-dma-latency-us = <60 340 900>;
 		qcom,cpu-affinity = "affine_cores";
@@ -962,6 +963,7 @@
 
 		qcom,large-address-bus;
 		qcom,bus-width = <4>;
+		qcom,large-address-bus;
 
 		qcom,cpu-dma-latency-us = <701>;
 
