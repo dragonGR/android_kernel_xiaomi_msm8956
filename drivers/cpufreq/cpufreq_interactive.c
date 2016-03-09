@@ -496,6 +496,9 @@ static void __cpufreq_interactive_timer(unsigned long data, bool is_notif)
 		}
 	} else {
 		new_freq = choose_freq(ppol, loadadjfreq);
+		if (new_freq > tunables->hispeed_freq &&
+				ppol->target_freq < tunables->hispeed_freq)
+			new_freq = tunables->hispeed_freq;
 	}
 
 	if (cpu_load <= MAX_LOCAL_LOAD &&
