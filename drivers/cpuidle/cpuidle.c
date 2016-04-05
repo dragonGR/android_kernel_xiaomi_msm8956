@@ -346,6 +346,23 @@ void cpuidle_disable_device(struct cpuidle_device *dev)
 
 EXPORT_SYMBOL_GPL(cpuidle_disable_device);
 
+static void __cpuidle_unregister_device(struct cpuidle_device *dev)
+{
+	struct cpuidle_driver *drv = cpuidle_get_cpu_driver(dev);
+
+	list_del(&dev->device_list);
+	per_cpu(cpuidle_devices, dev->cpu) = NULL;
+	module_put(drv->owner);
+
+	dev->registered = 0;
+}
+
+static void __cpuidle_device_init(struct cpuidle_device *dev)
+{
+	memset(dev->states_usage, 0, sizeof(dev->states_usage));
+	dev->last_residency = 0;
+}
+
 /**
  * __cpuidle_register_device - internal register function called before register
  * and enable routines
