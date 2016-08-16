@@ -12410,7 +12410,7 @@ void update_mic_gain(int vol_boost)
  	snd_soc_write(soundcontrol.snd_control_codec,
  		WCD9335_CDC_RX0_RX_VOL_MIX_CTL, boosted_val);
 
- 	pr_info("Sound Control: Boosted Speaker RX6 value %d\n",
+ 	pr_info("Sound Control: Boosted Mic RX0 value %d\n",
  		snd_soc_read(soundcontrol.snd_control_codec,
  		WCD9335_CDC_RX0_RX_VOL_CTL));
 }
