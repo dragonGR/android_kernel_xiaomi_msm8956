@@ -578,3 +578,9 @@ config SND_SOC_MSM_HDMI_CODEC_RX
 	help
 	HDMI audio drivers should be built only if the platform
         supports hdmi panel.
+
+config SOUND_CONTROL
+	tristate "sound control"
+	default n
+	help
+ 		Franco sound mod adapted for wcd9335
