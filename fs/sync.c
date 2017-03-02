@@ -221,6 +221,17 @@ static int do_fsync(unsigned int fd, int datasync)
 	if (f.file) {
 		ret = vfs_fsync(f.file, datasync);
 		fdput(f);
+		inc_syscfs(current);
+#ifdef CONFIG_ASYNC_FSYNC
+                fsync_diff = ktime_sub(ktime_get(), fsync_t);
+                if (ktime_to_ms(fsync_diff) >= 5000) {
+                        pr_info("VFS: %s pid:%d(%s)(parent:%d/%s)\
+                                takes %lld ms to fsync %s.\n", __func__,
+                                current->pid, current->comm,
+                                current->parent->pid, current->parent->comm,
+                                ktime_to_ms(fsync_diff), path);
+                }
+#endif
 	}
 	return ret;
 }
