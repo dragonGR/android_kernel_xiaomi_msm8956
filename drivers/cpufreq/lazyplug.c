@@ -552,7 +552,7 @@ int __init lazyplug_init(void)
 
 	rc = input_register_handler(&lazyplug_input_handler);
 
-	last_state = is_display_on();	
+	last_state = is_display_on();
 
 	lazyplug_wq = alloc_workqueue("lazyplug",
 				WQ_HIGHPRI | WQ_UNBOUND, 1);
