@@ -1509,6 +1509,10 @@ static int soft_offline_huge_page(struct page *page, int flags)
 	if (ret) {
 		pr_info("soft offline: %#lx: migration failed %d, type %lx\n",
 			pfn, ret, page->flags);
+		if (!list_empty(&pagelist))
+			putback_movable_pages(&pagelist);
+		if (ret > 0)
+			ret = -EIO;
 	} else {
 		/* overcommit hugetlb page will be freed to buddy */
 		if (PageHuge(page)) {
