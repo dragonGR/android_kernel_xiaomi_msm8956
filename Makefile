@@ -378,9 +378,14 @@ KBUILD_CFLAGS   := -Wall -Wundef -Wstrict-prototypes -Wno-trigraphs \
 		   -fno-strict-aliasing -fno-common \
 		   -Werror-implicit-function-declaration \
 		   -Wno-format-security \
-		   -fno-delete-null-pointer-checks \
                    -mcpu=cortex-a57.cortex-a53 -mtune=cortex-a57.cortex-a53 \
-                   -Wno-maybe-uninitialized \
+                   -Wno-memset-transposed-args -Wno-bool-compare \
+                   -Wno-logical-not-parentheses -Wno-discarded-array-qualifiers \
+                   -Wno-unused-variable -Wno-return-local-addr \
+                   -Wno-unused-function -Wno-unused-const-variable \
+                   -Wno-array-bounds -Wno-incompatible-pointer-types \
+                   -Wno-misleading-indentation -Wno-tautological-compare \
+                   -Wno-error=misleading-indentation -Wno-parentheses \
 		   -std=gnu89
 
 KBUILD_AFLAGS_KERNEL :=
@@ -588,6 +593,9 @@ KBUILD_CFLAGS   += $(call cc-disable-warning,unused-const-variable,)
 
 # Disable misleading warnings
 KBUILD_CFLAGS   += $(call cc-disable-warning,misleading-indentation,)
+
+# Disable frame-address warnings
+KBUILD_CFLAGS   += $(call cc-disable-warning,frame-address,)
 
 ifdef CONFIG_CC_OPTIMIZE_FOR_SIZE
 KBUILD_CFLAGS	+= -Os
