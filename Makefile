@@ -376,16 +376,10 @@ KBUILD_CPPFLAGS := -D__KERNEL__
 
 KBUILD_CFLAGS   := -Wall -Wundef -Wstrict-prototypes -Wno-trigraphs \
 		   -fno-strict-aliasing -fno-common \
-		   -Werror-implicit-function-declaration \
-		   -Wno-format-security \
+		   -Werror-implicit-function-declaration -Wno-format-security \
                    -mcpu=cortex-a57.cortex-a53 -mtune=cortex-a57.cortex-a53 \
-                   -Wno-memset-transposed-args -Wno-bool-compare \
-                   -Wno-logical-not-parentheses -Wno-discarded-array-qualifiers \
-                   -Wno-unused-variable -Wno-return-local-addr \
-                   -Wno-unused-function -Wno-unused-const-variable \
-                   -Wno-array-bounds -Wno-incompatible-pointer-types \
-                   -Wno-misleading-indentation -Wno-tautological-compare \
-                   -Wno-error=misleading-indentation -Wno-parentheses \
+                   -Wno-return-local-addr -Wno-unused-function \
+                   -Wno-array-bounds -Wno-parentheses \
 		   -std=gnu89
 
 # Optimization setup
@@ -611,9 +605,6 @@ KBUILD_CFLAGS	+= $(call cc-disable-warning,maybe-uninitialized,)
 # Disable all buggy detection warnings
 KBUILD_CFLAGS   += $(call cc-disable-warning,incompatible-pointer-types,)
 KBUILD_CFLAGS   += $(call cc-disable-warning,unused-const-variable,)
-
-# Disable misleading warnings
-KBUILD_CFLAGS   += $(call cc-disable-warning,misleading-indentation,)
 
 # Disable frame-address warnings
 KBUILD_CFLAGS   += $(call cc-disable-warning,frame-address,)
