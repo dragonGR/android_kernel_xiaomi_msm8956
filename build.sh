@@ -24,7 +24,7 @@ make -j$(($(nproc --all) * 2))
 $DTBTOOL -2 -o $KERNEL_DIR/arch/arm64/boot/dt.img -s 2048 -p $KERNEL_DIR/scripts/dtc/ $KERNEL_DIR/arch/arm/boot/dts/
 mv $KERNEL_DIR/arch/arm64/boot/dt.img $ANYKERNEL_DIR/dtb
 cp $KERNEL_DIR/arch/arm64/boot/Image.gz $ANYKERNEL_DIR/zImage
-git clean -fdx
+git clean -fdx > /dev/null 2>&1
 
 cd $ANYKERNEL_DIR
 zip -r9 $FINAL_ZIP * -x README.md $FINAL_ZIP > /dev/null 2>&1
