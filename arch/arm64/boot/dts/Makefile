@@ -6,7 +6,8 @@ targets += dtbs
 #used for cleaning - not building
 subdir- := dts/qcom
 
-
+.PHONY: dtbs
 dtbs: $(addprefix $(obj)/, $(DTB_LIST))
+	@true
 
 clean-files := dts/*.dtb *.dtb
