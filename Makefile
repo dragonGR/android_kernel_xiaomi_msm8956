@@ -616,9 +616,6 @@ KBUILD_CFLAGS   += $(call cc-disable-warning,unused-const-variable,)
 # Disable misleading warnings
 KBUILD_CFLAGS   += $(call cc-disable-warning,misleading-indentation,)
 
-# Disable frame-address warnings
-KBUILD_CFLAGS   += $(call cc-disable-warning,frame-address,)
-
 # Disable format-truncation warnings
 KBUILD_CFLAGS   += $(call cc-disable-warning,format-truncation,)
 
