@@ -619,6 +619,9 @@ KBUILD_CFLAGS   += $(call cc-disable-warning,misleading-indentation,)
 # Disable frame-address warnings
 KBUILD_CFLAGS   += $(call cc-disable-warning,frame-address,)
 
+# Disable format-truncation warnings
+KBUILD_CFLAGS   += $(call cc-disable-warning,format-truncation,)
+
 ifdef CONFIG_CC_OPTIMIZE_FOR_SIZE
 KBUILD_CFLAGS	+= -Os
 else
