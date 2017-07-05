@@ -382,7 +382,7 @@ KBUILD_CFLAGS   := -Wall -Wundef -Wstrict-prototypes -Wno-trigraphs \
                    -Wno-memset-transposed-args -Wno-bool-compare \
                    -Wno-logical-not-parentheses -Wno-discarded-array-qualifiers \
                    -Wno-unused-variable -Wno-return-local-addr \
-                   -Wno-unused-function -Wno-unused-const-variable \
+                   -Wno-unused-function \
                    -Wno-array-bounds -Wno-incompatible-pointer-types \
                    -Wno-misleading-indentation -Wno-tautological-compare \
                    -Wno-error=misleading-indentation -Wno-parentheses \
@@ -621,7 +621,7 @@ KBUILD_CFLAGS   += $(call cc-disable-warning,frame-address,)
 ifdef CONFIG_CC_OPTIMIZE_FOR_SIZE
 KBUILD_CFLAGS	+= -Os
 else
-KBUILD_CFLAGS	+= -O2 $(call cc-disable-warning,maybe-uninitialized,)
+KBUILD_CFLAGS	+= -O2
 endif
 
 include $(srctree)/arch/$(SRCARCH)/Makefile
