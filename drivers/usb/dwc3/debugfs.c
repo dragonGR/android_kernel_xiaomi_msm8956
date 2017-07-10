@@ -649,7 +649,7 @@ static ssize_t dwc3_store_ep_num(struct file *file, const char __user *ubuf,
 {
 	struct seq_file		*s = file->private_data;
 	struct dwc3		*dwc = s->private;
-        char                    kbuf[10] = {0};
+	char			kbuf[10] = {0};
 	unsigned int		num, dir, temp;
 	unsigned long		flags;
 
