@@ -35,6 +35,7 @@
 #include <linux/string_helpers.h>
 #include <linux/alarmtimer.h>
 #include <linux/qpnp-revid.h>
+#include <linux/charging_state.h>
 
 /* Register offsets */
 
@@ -2304,6 +2305,13 @@ static int fg_inc_store_cycle_ctr(struct fg_chip *chip, int bucket)
 	return rc;
 }
 
+bool is_charging = false;
+
+bool charging_detected(void)
+{
+	return is_charging;
+}
+
 static void update_cycle_count(struct work_struct *work)
 {
 	int rc = 0, bucket, i;
@@ -3300,6 +3308,7 @@ static void status_change_work(struct work_struct *work)
 	}
 	if (chip->status == POWER_SUPPLY_STATUS_FULL ||
 			chip->status == POWER_SUPPLY_STATUS_CHARGING) {
+		is_charging = true;
 		if (!chip->vbat_low_irq_enabled) {
 			enable_irq(chip->batt_irq[VBATT_LOW].irq);
 			enable_irq_wake(chip->batt_irq[VBATT_LOW].irq);
@@ -3308,6 +3317,7 @@ static void status_change_work(struct work_struct *work)
 		if (capacity == 100)
 			fg_configure_soc(chip);
 	} else if (chip->status == POWER_SUPPLY_STATUS_DISCHARGING) {
+		is_charging = false;
 		if (chip->vbat_low_irq_enabled) {
 			disable_irq_wake(chip->batt_irq[VBATT_LOW].irq);
 			disable_irq_nosync(chip->batt_irq[VBATT_LOW].irq);
