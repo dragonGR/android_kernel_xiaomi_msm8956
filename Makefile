@@ -382,7 +382,7 @@ KBUILD_CFLAGS   := -Wall -Wundef -Wstrict-prototypes -Wno-trigraphs \
                    -Wno-memset-transposed-args -Wno-bool-compare \
                    -Wno-logical-not-parentheses -Wno-discarded-array-qualifiers \
                    -Wno-unused-variable -Wno-return-local-addr \
-                   -Wno-unused-function \
+                   -Wno-unused-function -Wno-format \
                    -Wno-array-bounds -Wno-incompatible-pointer-types \
                    -Wno-misleading-indentation -Wno-tautological-compare \
                    -Wno-error=misleading-indentation -Wno-parentheses \
