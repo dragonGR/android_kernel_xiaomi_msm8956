@@ -5,9 +5,6 @@ KERNEL_NAME="IceColdKernel"
 DEVICE="-kenzo"
 FINAL_ZIP="$KERNEL_NAME""$DEVICE".zip
 
-git -C $ANYKERNEL_DIR checkout n7.1
-git -C $ANYKERNEL_DIR -fxd > /dev/null 2>&1
-
 export ARCH=arm64
 export KBUILD_BUILD_USER="Stark"
 export KBUILD_BUILD_HOST="StarkBoX"
