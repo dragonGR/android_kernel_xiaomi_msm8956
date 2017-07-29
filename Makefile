@@ -386,6 +386,7 @@ KBUILD_CFLAGS   := -Wall -Wundef -Wstrict-prototypes -Wno-trigraphs \
                    -Wno-array-bounds -Wno-incompatible-pointer-types \
                    -Wno-misleading-indentation -Wno-tautological-compare \
                    -Wno-error=misleading-indentation -Wno-parentheses \
+                   -mcpu=cortex-a57.cortex-a53 -mtune=cortex-a57.cortex-a53 \
 		   -std=gnu89
 
 # Optimization setup
