@@ -13,8 +13,8 @@ fi
 export ARCH=arm64
 export KBUILD_BUILD_USER="Stark"
 export KBUILD_BUILD_HOST="StarkBoX"
-export CROSS_COMPILE="$HOME/toolchain/linaro-6.3/bin/aarch64-linux-gnu-"
-export LD_LIBRARY_PATH="$HOME/toolchain/linaro-6.3/lib/"
+export CROSS_COMPILE="$HOME/toolchain/linaro-6.4/bin/aarch64-linux-gnu-"
+export LD_LIBRARY_PATH="$HOME/toolchain/linaro-6.4/lib/"
 
 make mrproper > /dev/null 2>&1
 make lineageos_kenzo_defconfig > /dev/null 2>&1
