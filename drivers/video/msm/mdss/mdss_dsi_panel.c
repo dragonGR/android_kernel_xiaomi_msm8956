@@ -865,10 +865,6 @@ static int mdss_dsi_panel_off(struct mdss_panel_data *pdata)
 
 	display_on = false;
 
-#ifdef CONFIG_LAZYPLUG
-	lazyplug_enter_lazy(true);
-#endif
-
 #ifdef CONFIG_POWERSUSPEND
 	set_power_suspend_state_panel_hook(POWER_SUSPEND_ACTIVE);
 #endif
