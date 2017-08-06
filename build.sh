@@ -4,7 +4,7 @@ DTBTOOL=$KERNEL_DIR/dtbTool
 DATE=$(date +"%d%m%Y")
 KERNEL_NAME="IceColdKernel"
 DEVICE="-kenzo-"
-VER="-v0.2"
+VER="-v0.3"
 FINAL_ZIP="$KERNEL_NAME""$DEVICE""$DATE""$VER".zip
 
 if [ -f "$FINAL_ZIP" ]; then
