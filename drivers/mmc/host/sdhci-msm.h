@@ -171,5 +171,6 @@ struct sdhci_msm_host {
 	u32 ice_clk_rate;
 	bool enhanced_strobe;
 	bool tuning_in_progress;
+	bool pltfm_init_done;
 };
 #endif /* __SDHCI_MSM_H__ */
