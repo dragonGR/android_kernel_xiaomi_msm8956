@@ -12378,11 +12378,11 @@ void update_headphones_volume_boost(unsigned int vol_boost)
  	snd_soc_write(soundcontrol.snd_control_codec,
  		WCD9335_CDC_RX2_RX_VOL_MIX_CTL, boosted_val);
 
- 		pr_info("Sound Control: Boosted Headphones RX1 value %d\n",
+ 		pr_info("Sound Control: Boosted Headphones Left RX1 value %d\n",
  		snd_soc_read(soundcontrol.snd_control_codec,
  		WCD9335_CDC_RX1_RX_VOL_CTL));
 
- 		pr_info("Sound Control: Boosted Headphones RX2 value %d\n",
+ 		pr_info("Sound Control: Boosted Headphones Right RX2 value %d\n",
 		snd_soc_read(soundcontrol.snd_control_codec,
  		WCD9335_CDC_RX2_RX_VOL_CTL));
 
@@ -12434,8 +12434,6 @@ void update_earpiece_gain(int vol_boost)
 
 	snd_soc_write(soundcontrol.snd_control_codec,
  		WCD9335_CDC_RX0_RX_VOL_CTL, boosted_val);
- 	snd_soc_write(soundcontrol.snd_control_codec,
- 		WCD9335_CDC_RX0_RX_VOL_MIX_CTL, boosted_val);
 
  	pr_info("Sound Control: Boosted Earpiece RX0 value %d\n",
  		snd_soc_read(soundcontrol.snd_control_codec,
